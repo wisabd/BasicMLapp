@@ -24,29 +24,7 @@ if response.status_code == 200:
 
   
 
-    maskcp = data["place_with_parent_names"].str.contains("Capital Federal")
-    maskpt = data["property_type"] == "apartment"
-    maskpr = data["price"] < 400_000
-
-    data = data[maskcp & maskpt & maskpr]
-    low, high = data["surface_covered_in_m2"].quantile([0.1, 0.9])
-    mask = data["surface_covered_in_m2"].between(low, high)
-    df = data[mask]
-
-    
-    
-    fig, ax = plt.subplots()
-    ax.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
-    st.pyplot(fig)
-
-    # Add labels and title
-    #plt.xlabel('Area [sq meters]', fontsize=12)
-    #plt.ylabel('Frequency', fontsize=12) 
-    #plt.title('Distribution of Apartment Sizes', fontsize=14)
-
-    # Show the plot
-    #plt.show()
-        
+   2
     st.write('**X**')
         
 else:
