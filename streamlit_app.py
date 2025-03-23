@@ -29,7 +29,7 @@ if response.status_code == 200:
 
         data = data[maskcp & maskpt & maskpr]
         low, high = data["surface_covered_in_m2"].quantile([0.1, 0.9])
-        mask = df["surface_covered_in_m2"].between(low, high)
+        mask = data["surface_covered_in_m2"].between(low, high)
         df = data[mask]
 
         
