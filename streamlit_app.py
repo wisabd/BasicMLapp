@@ -4,7 +4,7 @@ import requests
 import matplotlib.pyplot as plt
 from io import StringIO
 
-
+st.cache_data.clear()
 st.title('🏢 Real Estate Price Predictor')
 
 
