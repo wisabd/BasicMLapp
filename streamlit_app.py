@@ -13,9 +13,12 @@ st.write('In the area of Buenos Aires, Argentina. A Linear Regression (Machine L
 url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/blob/master/buenos-aires-real-estate-1.csv"
 # Fetch the CSV file content
 response = requests.get(url)
+st.write('In the')
 if response.status_code == 200:
     # Read the CSV content into a DataFrame
+    st.write('In the')
     data = pd.read_csv(StringIO(response.text))
     print(data)
 else:
+    st.write('In the notg;')
     print("Failed to fetch the CSV file.")
