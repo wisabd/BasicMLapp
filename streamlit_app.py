@@ -45,7 +45,7 @@ if response.status_code == 200:
     # Show the plot
     plt.show()
         
-        st.write('**X**')
+    st.write('**X**')
         
 else:
     st.write('In the notg;')
