@@ -17,4 +17,4 @@ if response.status_code == 200:
     data = pd.read_csv(StringIO(response.text))
     df
 else:
-    print("Failed to fetch the CSV file.")3
+    print("Failed to fetch the CSV file.")
