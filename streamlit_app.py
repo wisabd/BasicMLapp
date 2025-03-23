@@ -33,7 +33,6 @@ if response.status_code == 200:
     mask = data["surface_covered_in_m2"].between(low, high)
     df = data[mask]
 
-    st.write('matplotlib.__version__')
     
     st.pyplot.figure(figsize=(10, 6))  # Set the figure size
     st.pyplot.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
