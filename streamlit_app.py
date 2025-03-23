@@ -35,15 +35,15 @@ if response.status_code == 200:
 
     
     st.pyplot.figure(figsize=(10, 6))  # Set the figure size
-    st.pyplot.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
+    plt.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
 
     # Add labels and title
-    st.pyplot.xlabel('Area [sq meters]', fontsize=12)
-    st.pyplot.ylabel('Frequency', fontsize=12)
-    st.pyplot.title('Distribution of Apartment Sizes', fontsize=14)
+    plt.xlabel('Area [sq meters]', fontsize=12)
+    plt.ylabel('Frequency', fontsize=12)
+    plt.title('Distribution of Apartment Sizes', fontsize=14)
 
     # Show the plot
-    st.pyplot.show()
+    plt.show()
         
     st.write('**X**')
         
