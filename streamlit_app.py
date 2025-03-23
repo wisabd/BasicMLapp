@@ -34,16 +34,18 @@ if response.status_code == 200:
     df = data[mask]
 
     
-    st.pyplot.figure(figsize=(10, 6))  # Set the figure size
-    plt.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
+    
+    fig, ax = plt.subplots()
+    ax.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
+    st.pyplot(fig)
 
     # Add labels and title
-    plt.xlabel('Area [sq meters]', fontsize=12)
-    plt.ylabel('Frequency', fontsize=12)
-    plt.title('Distribution of Apartment Sizes', fontsize=14)
+    #plt.xlabel('Area [sq meters]', fontsize=12)
+    #plt.ylabel('Frequency', fontsize=12) 
+    #plt.title('Distribution of Apartment Sizes', fontsize=14)
 
     # Show the plot
-    plt.show()
+    #plt.show()
         
     st.write('**X**')
         
