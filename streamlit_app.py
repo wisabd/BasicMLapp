@@ -50,6 +50,9 @@ if response.status_code == 200:
     y_train = df[target]
     y_mean = y_train.mean()
     y_pred_baseline = [y_mean] * len(y_train)
+    baseline_df = pd.DataFrame({
+    'surface_covered_in_m2': X_train,
+    'baseline_prediction': y_pred_baseline})
 
     pd2 = pd.DataFrame(X_train.values,y_pred_baseline )
     fig2, ax2 = plt.subplots()
