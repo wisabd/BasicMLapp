@@ -40,7 +40,7 @@ if response.status_code == 200:
 
     ax.set_title("Distribution of Apartment Sizes")
     ax.set_ylabel("Frequency")
-    ax.set_xlim("Area [sq meters]")
+    ax.set_xlabel("Area [sq meters]")
 
     st.pyplot(fig)
 
