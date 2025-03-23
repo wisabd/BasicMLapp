@@ -44,6 +44,8 @@ if response.status_code == 200:
 
     st.pyplot(fig)
 
+    st.scatter_chart(x=df['surface_covered_in_m2'], y = df['price_aprox_usd'], color="col4",size="col3")
+
         
 else:
     st.write('In the notg;')
