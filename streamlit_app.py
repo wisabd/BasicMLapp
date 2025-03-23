@@ -1,17 +1,8 @@
-import streamlit as st
+5import streamlit as st
 import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 from io import StringIO
-
-
-
-# Debug session state
-st.write("Session state:", st.session_state)
-
-# Reset session state (if needed)
-if st.button("Reset Session State"):
-    st.session_state.clear()
     
 st.title('🏢 Real Estate Price Predictor')
 
@@ -51,10 +42,6 @@ if response.status_code == 200:
     ax.set_ylabel("Frequency")
     ax.set_title("Distribution of Apartment Sizes")
 
-    # Show the plot
-    #plt.show()
-        
-    st.write('**X**')
         
 else:
     st.write('In the notg;')
