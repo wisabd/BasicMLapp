@@ -24,7 +24,7 @@ if response.status_code == 200:
   
 
         maskcp = data["place_with_parent_names"].str.contains("Capital Federal")
-        mask3pt = data["property_type"] == "apartment"
+        maskpt = data["property_type"] == "apartment"
         maskpr = data["price"] < 400_000
 
         data = data[maskcp & maskpt & maskpr]
