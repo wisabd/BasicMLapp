@@ -47,10 +47,9 @@ if response.status_code == 200:
     ax.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
     st.pyplot(fig)
 
-    # Add labels and title
-    #plt.xlabel('Area [sq meters]', fontsize=12)
-    #plt.ylabel('Frequency', fontsize=12) 
-    #plt.title('Distribution of Apartment Sizes', fontsize=14)
+    ax.set_xlabel("Area [sq meters]")
+    ax.set_ylabel("Frequency")
+    ax.set_title("Distribution of Apartment Sizes")
 
     # Show the plot
     #plt.show()
