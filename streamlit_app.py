@@ -36,11 +36,13 @@ if response.status_code == 200:
     
     fig, ax = plt.subplots()
     ax.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
-    st.pyplot(fig)
+    
 
-    ax.set_xlabel("Area [sq meters]")
-    ax.set_ylabel("Frequency")
     ax.set_title("Distribution of Apartment Sizes")
+    ax.set_ylabel("Frequency")
+    ax.set_xlim("Area [sq meters]")
+
+    st.pyplot(fig)
 
         
 else:
