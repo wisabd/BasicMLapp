@@ -44,7 +44,8 @@ if response.status_code == 200:
 
     st.pyplot(fig)
 
-    st.scatter_chart(x=df['surface_covered_in_m2'], y = df['price_aprox_usd'], color="col4",size="col3")
+    chart_data = pd.DataFrame(np.random.randn(100, 10), df['surface_covered_in_m2'],df['price_aprox_usd']  )
+    st.scatter_chart(chart_data, x=df['surface_covered_in_m2'], y = df['price_aprox_usd'], color="col4",size="col3")
 
         
 else:
