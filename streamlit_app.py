@@ -4,7 +4,15 @@ import requests
 import matplotlib.pyplot as plt
 from io import StringIO
 
-st.cache_data.clear()
+
+
+# Debug session state
+st.write("Session state:", st.session_state)
+
+# Reset session state (if needed)
+if st.button("Reset Session State"):
+    st.session_state.clear()
+    
 st.title('🏢 Real Estate Price Predictor')
 
 
