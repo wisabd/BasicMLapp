@@ -16,6 +16,6 @@ response = requests.get(url)
 if response.status_code == 200:
     # Read the CSV content into a DataFrame
     data = pd.read_csv(StringIO(response.text))
-    df
+    data
 else:
     print("Failed to fetch the CSV file.")
