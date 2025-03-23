@@ -10,7 +10,7 @@ st.title('🏢 Real Estate Price Predictor')
 
 st.write('In the area of Buenos Aires, Argentina. A Linear Regression (Machine Learning) powered app.')
 
-url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/blob/master/buenos-aires-real-estate-1.csv"
+url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/master/buenos-aires-real-estate-1.csv"
 # Fetch the CSV file content
 response = requests.get(url)
 st.write('In the')
