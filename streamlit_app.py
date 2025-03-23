@@ -45,6 +45,23 @@ if response.status_code == 200:
     ax.set_title('Scatter Plot from DataFrame')
     st.pyplot(fig)
 
+    X_train = df["surface_covered_in_m2"]
+    target = "price_aprox_usd"
+    y_train = df[target]
+    y_mean = y_train.mean()
+    y_pred_baseline = [y_mean] * len(y_train)
+
+    dat = {X_train.values, y_pred_baseline}
+    pd2 = pd.DataFrame(dat)
+    df.set_index('surface_covered_in_m2', inplace=True)
+    st.write("Line Chart: Baseline Model")
+    st.line_chart(df)
+    ax.scatter(X_train, y_train, c='blue', label='Data Points')
+    ax.set_xlabel('Area [Sq metres]')
+    ax.set_ylabel('Price [USD]')
+    ax.set_title("Buenos Aires: Price vs. Area")
+    st.pyplot(fig)
+
 else:
     st.write('In the notg;')
     print("Failed to fetch the CSV file.")
