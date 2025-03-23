@@ -3,6 +3,9 @@ import pandas as pd
 import requests
 import matplotlib.pyplot as plt
 import numpy as np
+import plotly.express as px
+import plotly.graph_objects as go
+
 from io import StringIO
     
 st.title('🏢 Real Estate Price Predictor')
