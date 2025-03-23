@@ -59,7 +59,7 @@ if response.status_code == 200:
     ax2.set_title("Buenos Aires: Price vs. Area")
     df.set_index('surface_covered_in_m2', inplace=True)
     st.write("Line Chart: Baseline Model")
-    st.line_chart(df.set_index('X_train'))
+    st.line_chart(baseline_df.set_index('surface_covered_in_m2'))
     
    
     st.pyplot(fig2)
