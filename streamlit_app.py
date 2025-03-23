@@ -53,14 +53,16 @@ if response.status_code == 200:
 
     dat = {X_train.values, y_pred_baseline}
     pd2 = pd.DataFrame(dat)
+    fig2, ax2 = plt.subplots()
+    ax2.scatter(X_train, y_train, c='blue', label='Data Points')
+    ax2.set_xlabel('Area [Sq metres]')
+    ax2.set_ylabel('Price [USD]')
+    ax2.set_title("Buenos Aires: Price vs. Area")
     df.set_index('surface_covered_in_m2', inplace=True)
     st.write("Line Chart: Baseline Model")
     st.line_chart(df)
-    ax.scatter(X_train, y_train, c='blue', label='Data Points')
-    ax.set_xlabel('Area [Sq metres]')
-    ax.set_ylabel('Price [USD]')
-    ax.set_title("Buenos Aires: Price vs. Area")
-    st.pyplot(fig)
+   
+    st.pyplot(fig2)
 
 else:
     st.write('In the notg;')
