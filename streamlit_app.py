@@ -51,8 +51,7 @@ if response.status_code == 200:
     y_mean = y_train.mean()
     y_pred_baseline = [y_mean] * len(y_train)
 
-    dat = {X_train.values, y_pred_baseline}
-    pd2 = pd.DataFrame(dat)
+    pd2 = pd.DataFrame(X_train.values,y_pred_baseline )
     fig2, ax2 = plt.subplots()
     ax2.scatter(X_train, y_train, c='blue', label='Data Points')
     ax2.set_xlabel('Area [Sq metres]')
