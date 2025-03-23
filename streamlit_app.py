@@ -18,7 +18,7 @@ if response.status_code == 200:
     # Read the CSV content into a DataFrame
     st.write('In the')
     data = pd.read_csv(StringIO(response.text))
-    print(data)
+    data
 else:
     st.write('In the notg;')
     print("Failed to fetch the CSV file.")
