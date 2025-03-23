@@ -20,6 +20,33 @@ if response.status_code == 200:
         st.write('**Raw Data**')
         data = pd.read_csv(StringIO(response.text))
         data
+
+    def wrangle(filepath): #Read CSV into dataframe df = pd.read_csv(filepath)
+
+        maskcp = df["place_with_parent_names"].str.contains("Capital Federal")
+        mask3pt =  df["property_type"] == "apartment"
+        maskpr = df["price"] < 400_000
+
+        df = df[maskcp & maskpt & maskpr]
+        low, high = df["surface_covered_in_m2"].quantile([0.1, 0.9])
+        mask = df["surface_covered_in_m2"].between(low, high)
+        df = df[mask]
+
+        return df
+    df1 = wrangle(StringIO(response.text))
+    plt.figure(figsize=(10, 6))  # Set the figure size
+    plt.hist(df['surface_covered_in_m2'], bins=30, color='skyblue', edgecolor='black')
+
+    # Add labels and title
+    plt.xlabel('Area [sq meters]', fontsize=12)
+    plt.ylabel('Frequency', fontsize=12)
+    plt.title('Distribution of Apartment Sizes', fontsize=14)
+
+    # Show the plot
+    plt.show()
+        
+        st.write('**X**')
+        
 else:
     st.write('In the notg;')
     print("Failed to fetch the CSV file.")
