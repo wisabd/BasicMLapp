@@ -92,6 +92,7 @@ if response.status_code == 200:
     # Fetch the CSV file content
     response = requests.get(url)
     if response.status_code == 200:
+        st.write("helo")
         X_test = pd.read_csv(StringIO(response.text))
 
     mae_baseline = mean_absolute_error(y_train, y_pred_baseline)
@@ -99,13 +100,16 @@ if response.status_code == 200:
     X_train = df["surface_covered_in_m2"].values  # Convert to NumPy array
     X_train = X_train.reshape(-1, 1)
     model.fit(X_train, y_train)
-    check_is_fitted(model)9
+    check_is_fitted(model)
     y_pred_training = model.predict(X_train)
     y_pred_training[:5]
     mae_training = mean_absolute_error(y_train, y_pred_training)
     features = ["surface_covered_in_m2"]
+    
     X_test = X_test[features]
     y_pred_test = pd.Series(model.predict(X_test))
+
+  
     intercept = round(model.intercept_,2)
     coefficient = model.coef_[0]
 
