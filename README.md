@@ -9,17 +9,19 @@ This is a prediction app.
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://predrealml.streamlit.app/)
 
+<img width="343" alt="Screenshot 2025-03-24 110418" src="https://github.com/user-attachments/assets/119b2a3a-b268-4b31-94bb-28dfbfe98464" />
+
+Final linear model
+
+![newplot (1)](https://github.com/user-attachments/assets/4a11abe1-5e64-4e31-aada-82505e688f04)
+
+
+
 ## GitHub Codespaces
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/predrealml?quickstart=1)
 
-## Section Heading
+## Libraries Used
 
-This is filler text, please replace this with text for this section.
 
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+Libraries used: streamlit, plotly, pandas, scikitlearn
