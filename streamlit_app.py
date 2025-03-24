@@ -146,7 +146,7 @@ if response.status_code == 200:
             mode='markers',
             name='Actual Data Points',
             marker=dict(color='blue')
-    )
+    ))
 
     # Add line plot for model predictions
     fig2.add_trace(
@@ -156,7 +156,7 @@ if response.status_code == 200:
         mode='lines',
         name='Post-iteration Prediction: Linear Model',
         line=dict(color='red')
-    )
+    ))
 
     # Update layout
     fig2.update_layout(
