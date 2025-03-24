@@ -122,7 +122,7 @@ if response.status_code == 200:
     if response.status_code == 200:
         st.write("helo")
         X_test = pd.read_csv(StringIO(response.text))
-    else
+    else:
         st.write("file not opened")
 
     mae_baseline = mean_absolute_error(y_train, y_pred_baseline)
