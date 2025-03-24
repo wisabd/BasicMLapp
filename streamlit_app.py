@@ -57,19 +57,33 @@ if response.status_code == 200:
     'surface_covered_in_m2': X_train,
     'baseline_prediction': y_pred_baseline})
 
-    pd2 = pd.DataFrame(X_train.values,y_pred_baseline )
-    fig2, ax2 = plt.subplots()
-    ax2.scatter(X_train, y_train, c='blue', label='Data Points')
-    ax2.set_xlabel('Area [Sq metres]')
-    ax2.set_ylabel('Price [USD]')
-    ax2.set_title("Buenos Aires: Price vs. Area")
-    df.set_index('surface_covered_in_m2', inplace=True)
-    st.write("Line Chart: Baseline Model")
-    st.line_chart(baseline_df.set_index('surface_covered_in_m2'))
-    
-   
-    st.pyplot(fig2)
+    fig = go.Figure()
 
+    # Add scatter plot for actual data
+    fig.add_trace(
+        go.Scatter(
+        x=X_train,
+        y=y_train,
+        mode='markers',
+        name='Actual Data Points',
+        marker=dict(color='blue')
+    ) 
+    fig.add_trace(
+    go.Scatter(
+        x=X_train,
+        y=y_pred_baseline,
+        mode='lines',
+        name='Baseline Prediction',
+        line=dict(color='red')
+    )
+    fig.update_layout(
+    title="Buenos Aires: Price vs. Area",
+    xaxis_title="Area [Sq metres]",
+    yaxis_title="Price [USD]",
+    legend_title="Legend"
+    )
+
+    st.plotly_chart(fig)
 else:
     st.write('In the notg;')
     print("Failed to fetch the CSV file.")
