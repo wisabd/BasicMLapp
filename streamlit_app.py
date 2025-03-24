@@ -84,6 +84,17 @@ if response.status_code == 200:
     )
 
     st.plotly_chart(fig)
+
+    mae_baseline = mean_absolute_error(y_train, y_pred_baseline)
+    model = LinearRegression()
+    X_train = df["surface_covered_in_m2"].values  # Convert to NumPy array
+    X_train = X_train.reshape(-1, 1)
+    model.fit(X_train, y_train)
+    y_pred_training = model.predict(X_train)
+    y_pred_training[:5]
+    mae_training = mean_absolute_error(y_train, y_pred_training)
+    features = ["surface_covered_in_m2"]
+
 else:
     st.write('In the notg;')
     print("Failed to fetch the CSV file.")
