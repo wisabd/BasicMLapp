@@ -88,6 +88,18 @@ if response.status_code == 200:
 
     st.plotly_chart(fig)
 
+    fig2 = go.Figure()
+
+    # Add scatter plot for actual data
+    fig2.add_trace(
+        go.Scatter(
+        x=X_train,
+        y=y_train,
+        mode='markers',
+        name='Actual Data Points',
+        marker=dict(color='blue')
+    ) ) 
+
     url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/master/buenos-aires-test-features.csv"
     # Fetch the CSV file content
     response = requests.get(url)
@@ -117,17 +129,7 @@ if response.status_code == 200:
 
 
 
-    fig2 = go.Figure()
-
-    # Add scatter plot for actual data
-    fig2.add_trace(
-        go.Scatter(
-        x=X_train,
-        y=y_train,
-        mode='markers',
-        name='Actual Data Points',
-        marker=dict(color='blue')
-    ) ) 
+    
     fig2.add_trace(
     go.Scatter(
         x=X_train,
