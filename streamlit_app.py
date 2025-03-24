@@ -99,7 +99,7 @@ if response.status_code == 200:
         name='Actual Data Points',
         marker=dict(color='blue')
     ) ) 
-      fig2.add_trace(
+    fig2.add_trace(
     go.Scatter(
         x=X_train,
         y=model.predict(X_train),
