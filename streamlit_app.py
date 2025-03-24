@@ -99,6 +99,7 @@ if response.status_code == 200:
     X_train = df["surface_covered_in_m2"].values  # Convert to NumPy array
     X_train = X_train.reshape(-1, 1)
     model.fit(X_train, y_train)
+    check_is_fitted(model)9
     y_pred_training = model.predict(X_train)
     y_pred_training[:5]
     mae_training = mean_absolute_error(y_train, y_pred_training)
