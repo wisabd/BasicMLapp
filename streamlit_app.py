@@ -91,54 +91,74 @@ if response.status_code == 200:
    
  
 
+  
+
+
+    # Fetch data from GitHub
     url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/master/buenos-aires-test-features.csv"
-    # Fetch the CSV file content
     response = requests.get(url)
+
     if response.status_code == 200:
-        st.write("helo")
+        st.write("Data fetched successfully!")
         X_test = pd.read_csv(StringIO(response.text))
     else:
-        st.write("file not opened")
+        st.error("Failed to fetch the file. Please check the URL or your internet connection.")
+        st.stop()  # Stop execution if the file cannot be fetched
 
+ 
+    # Extract X_train and y_train
+    X_train = df["surface_covered_in_m2"].values.reshape(-1, 1)  # Reshape for sklearn
+    y_train = df["price_aprox_usd"]
+
+    # Baseline model (mean prediction)
+    y_mean = y_train.mean()
+    y_pred_baseline = [y_mean] * len(y_train)
     mae_baseline = mean_absolute_error(y_train, y_pred_baseline)
+
+    # Linear Regression model
     model = LinearRegression()
-    X_train = df["surface_covered_in_m2"].values  # Convert to NumPy array
-    X_train = X_train.reshape(-1, 1)
     model.fit(X_train, y_train)
-    check_is_fitted(model)
+    check_is_fitted(model)  # Ensure the model is fitted
+
+    # Predictions on training data
     y_pred_training = model.predict(X_train)
-    y_pred_training[:5]
     mae_training = mean_absolute_error(y_train, y_pred_training)
+
+    # Predictions on test data
     features = ["surface_covered_in_m2"]
-    
     X_test = X_test[features]
     y_pred_test = pd.Series(model.predict(X_test))
 
-  
-    intercept = round(model.intercept_,2)
-    coefficient = model.coef_[0]
-
+    # Display the regression equation
+    intercept = round(model.intercept_, 2)
+    coefficient = round(model.coef_[0], 2)
+    st.write(f"### Linear Regression Equation")
     st.write(f"apt_price = {intercept} + {coefficient} * surface_covered")
 
+    # Create Plotly figure
     fig2 = go.Figure()
 
     # Add scatter plot for actual data
     fig2.add_trace(
         go.Scatter(
-        x=X_train,
-        y=y_train,
-        mode='markers',
-        name='Actual Data Points',
-        marker=dict(color='blue')
-    ) ) 
+            x=X_train.flatten(),  # Flatten X_train for Plotly
+            y=y_train,
+            mode='markers',
+            name='Actual Data Points',
+            marker=dict(color='blue')
+    )
+
+    # Add line plot for model predictions
     fig2.add_trace(
     go.Scatter(
-        x=X_train,
+        x=X_train.flatten(),  # Flatten X_train for Plotly
         y=model.predict(X_train),
         mode='lines',
-        name='Post-iteration Prediction : Linear Model',
+        name='Post-iteration Prediction: Linear Model',
         line=dict(color='red')
-    ))
+    )
+
+    # Update layout
     fig2.update_layout(
     title="Buenos Aires: Price vs. Area",
     xaxis_title="Area [Sq metres]",
@@ -146,8 +166,8 @@ if response.status_code == 200:
     legend_title="Legend"
     )
 
+    # Display the Plotly figure in Streamlit
     st.plotly_chart(fig2)
-
 
     
   
