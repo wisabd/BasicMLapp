@@ -117,10 +117,10 @@ if response.status_code == 200:
 
 
 
-    fig = go.Figure()
+    fig2 = go.Figure()
 
     # Add scatter plot for actual data
-    fig.add_trace(
+    fig2.add_trace(
         go.Scatter(
         x=X_train,
         y=y_train,
@@ -128,7 +128,7 @@ if response.status_code == 200:
         name='Actual Data Points',
         marker=dict(color='blue')
     ) ) 
-    fig.add_trace(
+    fig2.add_trace(
     go.Scatter(
         x=X_train,
         y=model.predict(X_train),
@@ -136,14 +136,14 @@ if response.status_code == 200:
         name='Post-iteration Prediction : Linear Model',
         line=dict(color='red')
     ))
-    fig.update_layout(
+    fig2.update_layout(
     title="Buenos Aires: Price vs. Area",
     xaxis_title="Area [Sq metres]",
     yaxis_title="Price [USD]",
     legend_title="Legend"
     )
 
-    st.plotly_chart(fig)
+    st.plotly_chart(fig2)
     
 
 
