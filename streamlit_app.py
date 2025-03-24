@@ -67,7 +67,7 @@ if response.status_code == 200:
         mode='markers',
         name='Actual Data Points',
         marker=dict(color='blue')
-    ) 
+    ) ) 
     fig.add_trace(
     go.Scatter(
         x=X_train,
@@ -75,7 +75,7 @@ if response.status_code == 200:
         mode='lines',
         name='Baseline Prediction',
         line=dict(color='red')
-    )
+    ))
     fig.update_layout(
     title="Buenos Aires: Price vs. Area",
     xaxis_title="Area [Sq metres]",
