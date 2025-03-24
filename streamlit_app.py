@@ -99,6 +99,22 @@ if response.status_code == 200:
         name='Actual Data Points',
         marker=dict(color='blue')
     ) ) 
+      fig2.add_trace(
+    go.Scatter(
+        x=X_train,
+        y=model.predict(X_train),
+        mode='lines',
+        name='Post-iteration Prediction : Linear Model',
+        line=dict(color='red')
+    ))
+    fig2.update_layout(
+    title="Buenos Aires: Price vs. Area",
+    xaxis_title="Area [Sq metres]",
+    yaxis_title="Price [USD]",
+    legend_title="Legend"
+    )
+
+    st.plotly_chart(fig2)
 
     url = "https://raw.githubusercontent.com/wisabd/BasicMLapp/master/buenos-aires-test-features.csv"
     # Fetch the CSV file content
@@ -130,22 +146,7 @@ if response.status_code == 200:
 
 
     
-    fig2.add_trace(
-    go.Scatter(
-        x=X_train,
-        y=model.predict(X_train),
-        mode='lines',
-        name='Post-iteration Prediction : Linear Model',
-        line=dict(color='red')
-    ))
-    fig2.update_layout(
-    title="Buenos Aires: Price vs. Area",
-    xaxis_title="Area [Sq metres]",
-    yaxis_title="Price [USD]",
-    legend_title="Legend"
-    )
-
-    st.plotly_chart(fig2)
+  
     
 
 
