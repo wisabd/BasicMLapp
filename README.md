@@ -5,6 +5,8 @@
 
 This is a prediction app.
 
+Link to webapp: https://master-jemruercq43qseqnlvduvz.streamlit.app/
+
 ## Demo App
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://predrealml.streamlit.app/)
