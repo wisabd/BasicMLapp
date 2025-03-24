@@ -109,7 +109,7 @@ if response.status_code == 200:
 
 
 
-     fig = go.Figure()
+    fig = go.Figure()
 
     # Add scatter plot for actual data
     fig.add_trace(
